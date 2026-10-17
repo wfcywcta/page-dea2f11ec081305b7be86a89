@@ -1,0 +1,334 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>KNcloud - 规格化网络订阅与数据中继方案</title><meta name="description" content="KNcloud 提供明确的流量配额与网络路由服务。规格公开。多端通用。按需选购。"><meta name="keywords" content="KNcloud, 节点订阅, 网络中继, 流量配额, 通用客户端配置"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-cf4f491b15.xmkjxf.cn/"><meta property="og:type" content="website"><meta property="og:title" content="KNcloud - 规格化网络订阅与数据中继方案"><meta property="og:description" content="KNcloud 提供明确的流量配额与网络路由服务。规格公开。多端通用。按需选购。"><meta property="og:url" content="https://p-cf4f491b15.xmkjxf.cn/"><meta property="og:site_name" content="KNcloud"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-cf4f491b15.xmkjxf.cn/", "name": "KNcloud - 规格化网络订阅与数据中继方案", "description": "KNcloud 提供明确的流量配额与网络路由服务。规格公开。多端通用。按需选购。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="dea2f11ec081305b7be86a89:c0530c5be010f017d5d884886d7298c6598ed41713691d5d464571865be9e5fc:860d8cf749c0138991cd"></head><body id="top"><style>
+    *, *::before, *::after {box-sizing: border-box;margin: 0;padding: 0}
+    body {background-color: #f8fafc;color: #0f172a;font-family: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;line-height: 1.6;-webkit-font-smoothing: antialiased}
+    a {color: inherit;text-decoration: none}
+    .container {max-width: 1140px;margin: 0 auto;padding: 0 24px}
+    
+    /* Hero Section: 左文右信息面板的不对称分栏 */
+    .hero {padding: 64px 0 72px;border-bottom: 1px solid #e2e8f0;background: #ffffff}
+    .hero-split {display: grid;grid-template-columns: 1.35fr 1fr;gap: 48px;align-items: center}
+    .hero-brand-tag {display: inline-block;font-size: 13px;font-weight: 700;letter-spacing: 0.05em;text-transform: uppercase;color: #0891b2;background-color: #ecfeff;border: 1px solid #cffafe;padding: 4px 12px;border-radius: 9999px;margin-bottom: 20px}
+    .hero-text h1 {font-size: 40px;line-height: 1.25;font-weight: 800;color: #0f172a;letter-spacing: -0.02em;margin-bottom: 18px}
+    .hero-text p {font-size: 17px;color: #475569;margin-bottom: 32px;max-width: 540px}
+    
+    /* Nav: 首屏内嵌锚点标签 */
+    .hero-nav {display: flex;flex-wrap: wrap;gap: 12px}
+    .hero-nav a {display: inline-flex;align-items: center;padding: 9px 18px;font-size: 14px;font-weight: 600;color: #334155;background: #f1f5f9;border-radius: 9999px;border: 1px solid #e2e8f0;transition: background-color 0.2s, color 0.2s, border-color 0.2s}
+    .hero-nav a:hover {background-color: #0891b2;color: #ffffff;border-color: #0891b2}
+    
+    /* Hero Right: 状态与规格信息面板 (大圆角软阴影) */
+    .info-panel {background: #ffffff;border-radius: 24px;border: 1px solid #e2e8f0;padding: 32px;box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08)}
+    .info-panel-header {display: flex;justify-content: space-between;align-items: center;padding-bottom: 20px;border-bottom: 1px solid #f1f5f9;margin-bottom: 20px}
+    .info-panel-title {font-size: 14px;font-weight: 700;color: #0f172a;text-transform: uppercase;letter-spacing: 0.05em}
+    .status-badge {display: inline-flex;align-items: center;gap: 6px;font-size: 12px;font-weight: 600;color: #0891b2}
+    .status-dot {width: 8px;height: 8px;border-radius: 50%;background: #06b6d4}
+    .spec-grid {display: grid;grid-template-columns: 1fr 1fr;gap: 16px}
+    .spec-item {background: #f8fafc;padding: 14px;border-radius: 14px;border: 1px solid #f1f5f9}
+    .spec-label {font-size: 12px;color: #64748b;margin-bottom: 4px}
+    .spec-val {font-size: 15px;font-weight: 700;color: #1e293b}
+
+    /* Common Section */
+    section {padding: 72px 0}
+    .section-head {margin-bottom: 36px}
+    .section-head h2 {font-size: 26px;font-weight: 700;color: #0f172a;letter-spacing: -0.01em;margin-bottom: 6px}
+    .section-head p {font-size: 15px;color: #64748b}
+
+    /* Plans View: 纵向列表逐行展开 (卡片: 大圆角软阴影) */
+    .plans-stack {display: flex;flex-direction: column;gap: 20px}
+    .plan-row {background: #ffffff;border-radius: 20px;border: 1px solid #e2e8f0;box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);padding: 28px 32px;display: grid;grid-template-columns: 240px 1fr auto;gap: 32px;align-items: center;transition: border-color 0.2s, box-shadow 0.2s}
+    .plan-row.featured {border: 2px solid #06b6d4;background: #ffffff;box-shadow: 0 16px 35px -8px rgba(8, 145, 178, 0.12);position: relative}
+    .plan-identity {display: flex;flex-direction: column;gap: 6px}
+    .plan-badge {align-self: flex-start;font-size: 11px;font-weight: 700;background: #0891b2;color: #ffffff;padding: 2px 8px;border-radius: 6px;margin-bottom: 4px}
+    .plan-name {font-size: 20px;font-weight: 700;color: #0f172a}
+    .plan-price-block {display: flex;align-items: baseline;gap: 4px}
+    .plan-price {font-size: 24px;font-weight: 800;color: #0891b2}
+    .plan-cycle {font-size: 13px;color: #64748b}
+    .plan-annual {font-size: 13px;color: #475569}
+    .plan-features-list {display: flex;flex-wrap: wrap;gap: 10px 20px;list-style: none}
+    .plan-features-list li {font-size: 14px;color: #334155;display: flex;align-items: center;gap: 8px;min-width: 220px}
+    .plan-features-list li::before {content: "";width: 6px;height: 6px;border-radius: 50%;background: #0891b2}
+    .plan-action {display: flex;flex-direction: column;align-items: flex-end}
+    .btn-select {display: inline-block;padding: 10px 24px;font-size: 14px;font-weight: 600;background: #0f172a;color: #ffffff;border-radius: 12px;white-space: nowrap;transition: background 0.2s}
+    .btn-select:hover {background: #0891b2}
+    .plan-row.featured .btn-select {background: #0891b2}
+    .plan-row.featured .btn-select:hover {background: #0e7490}
+
+    /* Workflow & Clients */
+    .steps-grid {display: grid;grid-template-columns: repeat(3, 1fr);gap: 24px}
+    .step-card {background: #ffffff;border-radius: 20px;border: 1px solid #e2e8f0;padding: 28px;box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04)}
+    .step-num {font-size: 13px;font-weight: 800;color: #0891b2;background: #ecfeff;border: 1px solid #cffafe;width: 32px;height: 32px;display: flex;align-items: center;justify-content: center;border-radius: 8px;margin-bottom: 16px}
+    .step-card h3 {font-size: 17px;font-weight: 700;color: #0f172a;margin-bottom: 8px}
+    .step-card p {font-size: 14px;color: #64748b}
+
+    /* Clients Grid */
+    .clients-card {background: #ffffff;border-radius: 20px;border: 1px solid #e2e8f0;padding: 32px;box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04)}
+    .clients-list {display: grid;grid-template-columns: repeat(4, 1fr);gap: 16px;margin-top: 24px}
+    .client-box {border: 1px solid #f1f5f9;background: #f8fafc;padding: 20px;border-radius: 14px}
+    .client-os {font-size: 16px;font-weight: 700;color: #0f172a;margin-bottom: 4px}
+    .client-desc {font-size: 13px;color: #64748b;margin-bottom: 12px}
+    .client-status {font-size: 12px;font-weight: 600;color: #0891b2}
+
+    /* FAQ View: 编号列表 (卡片: 大圆角软阴影) */
+    .faq-list {display: flex;flex-direction: column;gap: 16px}
+    .faq-item {background: #ffffff;border-radius: 20px;border: 1px solid #e2e8f0;box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04);padding: 26px 32px;display: grid;grid-template-columns: 56px 1fr;gap: 20px;align-items: baseline}
+    .faq-index {font-size: 20px;font-weight: 800;color: #0891b2;font-variant-numeric: tabular-nums}
+    .faq-content h3 {font-size: 17px;font-weight: 700;color: #0f172a;margin-bottom: 8px}
+    .faq-content p {font-size: 14px;color: #475569}
+
+    /* Footer */
+    footer {border-top: 1px solid #e2e8f0;padding: 36px 0;background: #ffffff;text-align: center;font-size: 13px;color: #94a3b8}
+
+    /* Responsive */
+    @media (max-width: 900px) {.hero-split {
+        grid-template-columns: 1fr;gap: 36px;}
+      .plan-row {
+        grid-template-columns: 1fr;gap: 20px;}
+      .plan-action {
+        align-items: flex-start;}
+      .steps-grid {
+        grid-template-columns: 1fr;}
+      .clients-list {
+        grid-template-columns: 1fr 1fr;}}
+    @media (max-width: 600px) {
+      .hero-text h1 {font-size: 30px}
+      .spec-grid {grid-template-columns: 1fr}
+      .clients-list {grid-template-columns: 1fr}
+      .faq-item {grid-template-columns: 1fr;gap: 8px}
+    }
+  </style><main>
+  
+  <header class="hero">
+    <div class="container">
+      <div class="hero-split">
+        <div class="hero-text">
+          <span class="hero-brand-tag">KNcloud 网络服务档案</span>
+          <h1>KNcloud 节点订阅与数据路由面板</h1>
+          <p>标准化网络接入中继。按需分配流量额度。支持多终端协议协同。规格公开透明。</p>
+          <nav class="hero-nav" aria-label="页面内导航">
+            <a href="#plans">订阅套餐</a>
+            <a href="#guide">接入流程</a>
+            <a href="#clients">终端支持</a>
+            <a href="#faq">常见问题</a>
+          </nav>
+        </div>
+
+        <div class="info-panel">
+          <div class="info-panel-header">
+            <span class="info-panel-title">系统规格概览</span>
+            <span class="status-badge"><span class="status-dot"></span> 正常分配中</span>
+          </div>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-label">主干通道</div>
+              <div class="spec-val">IPLC 专线与普通节点</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">支持协议</div>
+              <div class="spec-val">通用网络代理核心</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">接入额度</div>
+              <div class="spec-val">100GB - 1000GB</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">设备协同</div>
+              <div class="spec-val">3 至 20 台同时在线</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section id="plans">
+    <div class="container">
+      <div class="section-head">
+        <h2>订阅方案</h2>
+        <p>按月结算或按年订购。方案随时切换。无隐性绑定。</p>
+      </div>
+
+      <div class="plans-stack">
+        
+        <article class="plan-row">
+          <div class="plan-identity">
+            <h3 class="plan-name">基础版</h3>
+            <div class="plan-price-block">
+              <span class="plan-price">¥15</span>
+              <span class="plan-cycle">/ 月</span>
+            </div>
+            <span class="plan-annual">按年付仅需 ¥150/年</span>
+          </div>
+          <ul class="plan-features-list">
+            <li>每月 100GB 流量配额</li>
+            <li>支持 3 台设备同时在线</li>
+            <li>普通线路节点池接入</li>
+            <li>基础流媒体内容访问支持</li>
+          </ul>
+          <div class="plan-action">
+            <a href="#" class="btn-select">选用此方案</a>
+          </div>
+        </article>
+
+        
+        <article class="plan-row featured">
+          <div class="plan-identity">
+            <span class="plan-badge">推荐选择</span>
+            <h3 class="plan-name">旗舰版</h3>
+            <div class="plan-price-block">
+              <span class="plan-price">¥35</span>
+              <span class="plan-cycle">/ 月</span>
+            </div>
+            <span class="plan-annual">按年付仅需 ¥350/年</span>
+          </div>
+          <ul class="plan-features-list">
+            <li>每月 300GB 流量配额</li>
+            <li>支持 5 台设备同时在线</li>
+            <li>IPLC 专线路由通道</li>
+            <li>全节点原生流媒体解锁</li>
+            <li>7x24 优先工单支持</li>
+          </ul>
+          <div class="plan-action">
+            <a href="#" class="btn-select">选用此方案</a>
+          </div>
+        </article>
+
+        
+        <article class="plan-row">
+          <div class="plan-identity">
+            <h3 class="plan-name">团队版</h3>
+            <div class="plan-price-block">
+              <span class="plan-price">¥85</span>
+              <span class="plan-cycle">/ 月</span>
+            </div>
+            <span class="plan-annual">按年付仅需 ¥850/年</span>
+          </div>
+          <ul class="plan-features-list">
+            <li>每月 1000GB 流量配额</li>
+            <li>支持 20 台设备同时在线</li>
+            <li>VIP 专属高带宽节点池</li>
+            <li>支持企业级定制路由策略</li>
+            <li>专属客户经理跟进服务</li>
+          </ul>
+          <div class="plan-action">
+            <a href="#" class="btn-select">选用此方案</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="guide">
+    <div class="container">
+      <div class="section-head">
+        <h2>配置指引</h2>
+        <p>三步完成接入。纯净配置，无冗余捆绑。</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>选定并获取凭证</h3>
+          <p>根据团队或个人带宽需求订购对应周期方案。进入后台复制标准订阅链接。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>导入客户端配置</h3>
+          <p>在对应系统客户端中粘贴订阅链接。解析节点列表并完成本地缓存写入。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>启动分流规则</h3>
+          <p>选取延迟适宜的接入点。开启系统规则分流模式。连接即刻建立。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="clients">
+    <div class="container">
+      <div class="section-head">
+        <h2>终端与协议兼容性</h2>
+        <p>KNcloud 不分发第三方安装包。用户可通过通用开源内核连接。</p>
+      </div>
+
+      <div class="clients-card">
+        <p>支持所有遵循行业标准通用代理协议的开源工具。导入订阅地址即可使用，请按操作系统自行部署。</p>
+        <div class="clients-list">
+          <div class="client-box">
+            <div class="client-os">Windows</div>
+            <div class="client-desc">支持 Clash / Sing-box 等内核</div>
+            <div class="client-status">标准订阅链接适配</div>
+          </div>
+          <div class="client-box">
+            <div class="client-os">macOS</div>
+            <div class="client-desc">支持 Surge / Clash Verge / Loon</div>
+            <div class="client-status">托管规则直连导入</div>
+          </div>
+          <div class="client-box">
+            <div class="client-os">iOS &amp; iPadOS</div>
+            <div class="client-desc">支持 Shadowrocket / Quantumult X</div>
+            <div class="client-status">扫码或链接一键载入</div>
+          </div>
+          <div class="client-box">
+            <div class="client-os">Android</div>
+            <div class="client-desc">支持 v2rayNG / Clash Meta</div>
+            <div class="client-status">本地配置与策略分流</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>规格与使用说明清单。</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-index">01</div>
+          <div class="faq-content">
+            <h3>配额用尽后服务是否继续提供？</h3>
+            <p>每月流量用尽后传输连接将自动切断。数据额度在下一个自然计费周期首日重置。如需继续使用，可提前在控制台变更高阶方案。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-index">02</div>
+          <div class="faq-content">
+            <h3>多设备在线数量如何界定？</h3>
+            <p>以并发活跃网络连接的物理设备数量为准。基础版限制 3 台，旗舰版限制 5 台，团队版限制 20 台。超出配额的新设备无法建立通道。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-index">03</div>
+          <div class="faq-content">
+            <h3>旗舰版的 IPLC 专线路由有何特点？</h3>
+            <p>IPLC 为内网点对点物理通道。不经过公共骨干网常规拥塞节点。网络抖动较低，适合高优先级交互和专有低延迟应用。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-index">04</div>
+          <div class="faq-content">
+            <h3>是否提供专有封装客户端下载？</h3>
+            <p>KNcloud 不提供自制客户端程序。所有接入均建立在开源协议和成熟的第三方通用网络工具之上。用户可自主掌控本地环境。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© KNcloud. 规格化网络订阅服务面板。按需分配，平稳传输。</p>
+  </div>
+</footer><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
